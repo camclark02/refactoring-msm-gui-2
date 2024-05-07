@@ -12,7 +12,8 @@
 #
 class Actor < ApplicationRecord
   validates(:name, presence: true)
-
+  
+  has_many(:characters)
   def characters
     key = self.id
 
@@ -21,6 +22,7 @@ class Actor < ApplicationRecord
     return the_many
   end
 
+  has_many(:filmography)  
   def filmography
     the_many = Array.new
 
